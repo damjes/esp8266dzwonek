@@ -22,9 +22,7 @@ void setup() {
   // Port defaults to 8266
   // ArduinoOTA.setPort(8266);
 
-  // Hostname defaults to esp8266-[ChipID]
-  // ArduinoOTA.setHostname("myesp8266");
-
+  ArduinoOTA.setHostname("esp8266dzwonek");
   ArduinoOTA.setPassword(HASLOADMINA);
 
   // Password can be set with it's md5 value as well

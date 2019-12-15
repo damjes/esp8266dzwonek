@@ -19,6 +19,7 @@ void przygotujOTA() {
       type = "sketch";
     } else { // U_SPIFFS
       type = "filesystem";
+      SPIFFS.end();
     }
 
     // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()

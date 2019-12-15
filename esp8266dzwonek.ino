@@ -13,6 +13,26 @@ void setup() {
     ESP.restart();
   }
 
+  Serial.print("Mounting FS...");
+
+  if (!SPIFFS.begin()) {
+    Serial.println("\nFailed to mount file system");
+    return;
+  } else {
+    Serial.println(" OK!");
+    Serial.print("Otwieranie pliku...");
+    File plik = SPIFFS.open("/test.txt", "r");
+    if (plik) {
+      Serial.println(" OK!");
+      Serial.println("Zawartosc:");
+      String dane = plik.readString();
+      Serial.println(dane);
+    } else {
+      Serial.println("");
+      Serial.println("Failed to open config file");
+    }
+  }
+
   przygotujOTA();
   
   Serial.println("Ready");
